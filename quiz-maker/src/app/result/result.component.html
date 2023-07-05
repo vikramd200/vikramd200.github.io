@@ -1,0 +1,22 @@
+<div>
+    <p>RESULTS</p>
+</div>
+
+<ng-container style="margin-top: 10px;" *ngFor = "let ques of questionList ; let i =index">
+    <label #questionLabel [id]="i">{{ques.question}}</label>
+    <div style="margin-top: 10px;">
+        <ng-container *ngFor="let ans of ques.options; let j= index">
+            <button [ngStyle]="{'background-color' : ans == checkIncorrectanswer(questionLabel.id) ? 'red' : ans == getcorrectanswer(questionLabel.id) ? 'green' : '' }"  
+            [id] = "j" [value]="ans"  
+                #ansButton class = "buttonSpaces"
+                >{{ans}}</button>
+        </ng-container>
+    </div>
+    </ng-container>
+    <div *ngIf = "showResult" style="margin-top: 10px;">
+        <label [style.background-color] = "resultColor" >You scored {{score}} out of 5</label>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <button (click)="createNewQuiz()">Create a New Quiz</button>
+    </div>
