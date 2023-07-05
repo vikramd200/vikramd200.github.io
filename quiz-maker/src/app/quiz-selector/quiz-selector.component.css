@@ -1,0 +1,17 @@
+.colorChangeOnHover:hover {
+    background-color: green;
+}
+
+.buttonSpaces {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.topMargin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.spacing {
+    margin-right: 20px;
+}

@@ -1,0 +1,29 @@
+<p>Quiz Maker</p>
+<div>
+    <select #category name="category" id="categorySelect" class="spacing">
+        <option value="default">Select a category</option>
+        <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+    </select>
+    <select #difficulty name="difficuty" id="difficultySelect" class="spacing">
+        <option value="default">Select difficulty</option>
+        <Option value="easy">Easy</Option>
+        <Option value="medium">Medium</Option>
+        <Option value="hard">Hard</Option>
+    </select>
+    <button id="createBtn" (click)="onCreateButtonClick(category.value, difficulty.value)">Create</button>
+</div>
+<ng-container *ngIf='showQuestions'>
+    <ng-container *ngFor="let ques of questionList ; let i =index">
+        <label #questionLabel [id]="i">{{ques.question}}</label>
+        <div class="topMargin">
+            <ng-container *ngFor="let ans of ques.options; let j= index">
+                <button [style.background-color]="ans == getMapValue(questionLabel.id) ? 'green' : '' " [id]="j"
+                    [value]="ans" (click)="logAnswer(questionLabel.id, ansButton.value)" #ansButton
+                    class="colorChangeOnHover ; buttonSpaces">{{ans}}</button>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>
+<div *ngIf='showSubmit' style="margin-top: 10px;">
+    <button (click)="onsubmitQuiz()">submit Quiz</button>
+</div>
