@@ -3,12 +3,12 @@
 </div>
 
 <ng-container style="margin-top: 10px;" *ngFor="let ques of questionList ; let i =index">
-    <label #questionLabel [id]="i">{{ques.question}}</label>
+    <label #questionLabel [id]="i" [innerHTML]="ques.question"></label>
     <div style="margin-top: 10px;">
         <ng-container *ngFor="let ans of ques.options; let j= index">
             <button
                 [ngStyle]="{'background-color' : ans == checkIncorrectanswer(questionLabel.id) ? 'red' : ans == getcorrectanswer(questionLabel.id) ? 'green' : '' }"
-                [id]="j" [value]="ans" #ansButton class="buttonSpaces">{{ans}}</button>
+                [id]="j" [value]="ans" #ansButton class="buttonSpaces" [innerHTML]="ans"></button>
         </ng-container>
     </div>
 </ng-container>

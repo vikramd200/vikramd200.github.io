@@ -34,7 +34,7 @@ export class ResultComponent {
 
   setResultcolor(score : number) : string{
     let color : string = "";
-    if(score>4){
+    if(score>=4){
       color = 'green';
     } else if(score>1 && score <4){
       color = 'yellow';
